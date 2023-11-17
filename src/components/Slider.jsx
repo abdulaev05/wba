@@ -93,13 +93,14 @@ const Slider = ({ children, options = { transition: 500, loop: false, autoplay: 
     if (!startX || !endX) return;
 
     const distance = endX - startX;
-    if (distance > 100) prevSlide();
-    if (distance < -100) nextSlide();
+    if (distance > 10) prevSlide();
+    if (distance < -10) nextSlide();
 
     setStartX(null);
     setEndX(null);
   };
 
+  //!
   //перенос последнего слайда в начало при загрузке страницы
   useEffect(() => {
     if (!slidesElRef?.current?.children?.length) return;

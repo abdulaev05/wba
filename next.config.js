@@ -5,6 +5,7 @@ const path = require('path');
 
 const nextConfig = {
   reactStrictMode: true,
+  // distDir: 'build',
 
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
