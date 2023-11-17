@@ -1,0 +1,74 @@
+@import '../../links/colors.scss';
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+
+  min-width: 368px;
+  padding: 20px;
+
+  position: absolute;
+  left: 0;
+  top: calc(100% + 1px);
+  z-index: 2;
+
+  background: #fff;
+
+  opacity: 0;
+  visibility: hidden;
+
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 16px 32px;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s;
+  }
+  &.closed {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+  }
+
+  &__item {
+    width: fit-content;
+
+    position: relative;
+    white-space: nowrap;
+    transition: all 0.3s;
+
+    &:hover > .dropdown__link {
+      cursor: pointer;
+      color: $blueSky;
+
+      &::after {
+        width: 100%;
+        left: 0;
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    padding-block: 4px;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transition: all 0.3s;
+
+      background-color: $blueSky;
+    }
+  }
+}

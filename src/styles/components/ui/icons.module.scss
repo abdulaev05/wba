@@ -1,0 +1,78 @@
+@import '../../links/colors.scss';
+
+.icon {
+  min-width: 20px;
+  min-height: 20px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.wrapper_round {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 6px;
+
+  color: #fff;
+  border-radius: 50%;
+
+  svg {
+    fill: currentColor;
+  }
+}
+
+.drop_arrow {
+  display: flex;
+}
+
+.transition {
+  transition: all 0.3s;
+}
+
+//social
+.instagram {
+  background: $instagram;
+}
+
+.whatsapp {
+  background: $whatsapp;
+}
+
+//////////////////////*
+
+.burger {
+  cursor: pointer;
+  transition: transform 400ms;
+  user-select: none;
+
+  position: relative;
+  z-index: 10;
+}
+
+.burgerRotate.active {
+  transform: rotate(45deg);
+}
+
+.line {
+  fill: none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: #000;
+  stroke-width: 5.5;
+  stroke-linecap: round;
+}
+
+.burger1 .top {
+  stroke-dasharray: 40 139;
+}
+.burger1 .bottom {
+  stroke-dasharray: 40 180;
+}
+.burger1.active .top {
+  stroke-dashoffset: -98px;
+}
+.burger1.active .bottom {
+  stroke-dashoffset: -138px;
+}

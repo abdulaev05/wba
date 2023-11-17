@@ -1,0 +1,68 @@
+// @import './links/fonts.scss';
+
+.wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  max-width: 1400px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 20px;
+}
+
+// main {
+//   flex: 1 1 auto;
+// }
+
+.title {
+  @include adaptive_property(24px, 40px, 320px, 1280px, margin-bottom);
+
+  @include adaptive_property(28px, 40px, 320px, 1280px, font-size);
+  font-weight: 700;
+  color: $blueSky;
+}
+
+.subtitle {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  font-size: 16px;
+}
+
+////////////////////////////
+.link-blue {
+  display: inline-block;
+  width: fit-content;
+  height: fit-content;
+
+  transition: all 0.3s;
+  &:hover {
+    color: $blueSky;
+  }
+}
+
+.list-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+////////////////////////////
+[type='checkbox'] {
+  &:hover {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,30 @@
+@import '../../links/colors.scss';
+
+.ourProjects {
+  width: 100%;
+  margin-bottom: 70px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  padding: 20px 0;
+
+  color: $blueSky;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.item {
+  flex-grow: 1;
+  width: 300px;
+  // width: calc(33% - (20px * 2 / 3));
+  height: 300px;
+  object-fit: cover;
+}

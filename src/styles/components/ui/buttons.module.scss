@@ -1,0 +1,45 @@
+@import '../../links/colors.scss';
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  height: 40px;
+  min-height: 40px;
+  padding-inline: 16px;
+
+  background: #fff;
+
+  border: 1px solid $blueSky;
+  border-radius: 100px;
+
+  transition: all 0.3s;
+  &:hover {
+    cursor: pointer;
+    color: $blueSky;
+  }
+}
+
+.square_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  height: 50px;
+  min-height: 50px;
+  padding-inline: 16px;
+
+  color: #fff;
+  background: $blueSky;
+
+  border: none;
+
+  transition: all 0.3s;
+  &:hover {
+    cursor: pointer;
+    background: $brilliant-blue;
+  }
+}

@@ -1,0 +1,76 @@
+@import '../../links/colors.scss';
+@import '../../links/fonts.scss';
+
+.choosing_help {
+  width: 100%;
+  margin-bottom: 70px;
+
+  background: url(../../../imgs/man.jpg) center/cover no-repeat;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  row-gap: 25px;
+
+  width: 100%;
+  padding: 80px 0;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+
+  &__subtitle {
+    max-width: 340px;
+    @include adaptive_property(14px, 18px, 320px, 1280px, font-size);
+    color: $brilliant-blue;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  height: 100%;
+}
+
+.privacy_policy {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.link {
+  color: $blueSky;
+}
+
+//media screen
+
+@media screen and (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+  }
+
+  .text {
+    align-items: center;
+    text-align: center;
+    &__subtitle {
+      max-width: 70%;
+    }
+  }
+
+  .form {
+    width: 100%;
+  }
+}
