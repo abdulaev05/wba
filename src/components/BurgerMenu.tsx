@@ -12,12 +12,12 @@ import Calculator from './buttons/Calculator';
 
 //!!! ИЗМЕНИТЬ СТИЛИ ЧТОБЫ НЕБЫЛО OVERFLOWS
 
-type droplist = { href: string; listName: string } | null;
+type droplist = { href: string; listName: string };
 
 type list = {
   href: string;
   listName: string;
-  droplist: droplist[];
+  droplist?: droplist[];
 };
 
 const BurgerMenu = () => {
