@@ -98,11 +98,11 @@ const Slider: FC<TSlider> = ({ children, options = { transition: 500, loop: fals
   };
 
   //!SwipeSlide
-  const handleTouchStart = (e) => {
+  const handleTouchStart: React.TouchEventHandler<HTMLDivElement> | undefined = (e) => {
     setStartX(e.touches[0].clientX);
   };
 
-  const handleTouchMove = (e) => {
+  const handleTouchMove: React.TouchEventHandler<HTMLDivElement> | undefined = (e) => {
     setEndX(e.touches[0].clientX);
   };
 
