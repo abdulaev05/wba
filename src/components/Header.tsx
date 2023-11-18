@@ -28,7 +28,7 @@ import BurgerMenu from './BurgerMenu';
 
 const Header = () => {
   const { md } = useMediaQueries();
-  const headerRef = useRef(null);
+  const headerRef = useRef<HTMLHeadingElement>(null!);
 
   const navList: THeaderNav[] = [
     {
