@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { FC } from 'react';
+import { TSocial } from '@/types/typeIcons';
 
 // styles
 import styles from '@/styles/components/ui/icons.module.scss';
 
-const Instagram = ({ size }) => {
+const Instagram: FC<TSocial> = ({ size }) => {
   return (
     <a href="/" className={styles.icon} style={{ width: size, height: size }} target="_blank">
       <div className={`${styles.wrapper_round} ${styles.instagram}`}>

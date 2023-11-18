@@ -1,10 +1,13 @@
+import { FC } from 'react';
+import { TSimpleBtn } from '@/types/typeButtons';
+
 import { useAppDispatch } from '@/hooks/redux';
 import { toggleBurgerMenu } from '@/store/reducers/burgerMenuSlice';
-import Phone from '../Icons/Phone';
+import Ruler from '../Icons/Ruler';
 // styles
 import styles from '../../styles/components/ui/buttons.module.scss';
 
-const Order = ({ content }) => {
+const Callback: FC<TSimpleBtn> = ({ content }) => {
   const dispatch = useAppDispatch();
 
   const handleClick = () => {
@@ -13,10 +16,10 @@ const Order = ({ content }) => {
 
   return (
     <button className={styles.btn} onClick={handleClick}>
-      <Phone color="white" />
+      <Ruler fill="white" />
       <span>{content}</span>
     </button>
   );
 };
 
-export default Order;
+export default Callback;

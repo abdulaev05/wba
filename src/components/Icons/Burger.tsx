@@ -4,8 +4,6 @@ import styles from '@/styles/components/ui/icons.module.scss';
 
 const Burger = () => {
   const handleClick = () => {
-    // handleClickBurger(!isActive);
-    // burgerIsActive = !burgerIsActive;
     dispatch(toggleBurgerMenu(!burgerIsActive));
   };
 

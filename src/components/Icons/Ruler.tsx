@@ -1,9 +1,9 @@
+import { FC } from 'react';
+import { TIcons } from '@/types/typeIcons';
 // styles
 import styles from '@/styles/components/ui/icons.module.scss';
 
-const Ruler = (props) => {
-  const size = props.size;
-
+const Ruler: FC<TIcons> = ({ size }) => {
   return (
     <div className={styles.icon} style={{ width: size, height: size }}>
       <svg style={{ fill: 'currentColor' }} viewBox="0 0 490 490">

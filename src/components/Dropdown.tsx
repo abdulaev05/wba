@@ -1,13 +1,19 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { useAppDispatch } from '@/hooks/redux';
 import { toggleBurgerMenu } from '@/store/reducers/burgerMenuSlice';
 
 import DropArrow from './Icons/DropArrow';
-
+//types
+import { THeaderNav } from '@/types/typeNavs';
+//styles
 import styles from '@/styles/components/ui/dropdown.module.scss';
 
-const Dropdown = ({ element }) => {
+// type TElementProps = {
+//   element: THeaderNav[];
+// };
+
+const Dropdown: FC<{ element: THeaderNav }> = ({ element }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useAppDispatch();
 
@@ -25,16 +31,16 @@ const Dropdown = ({ element }) => {
 
   //return
 
-  if (!!element.listName && !!element.droplist) {
+  if (!!element.content && !!element.droplist) {
     return (
       <li className={styles.dropdown__item} onMouseEnter={Open} onMouseLeave={Close}>
         <p className={styles.dropdown__link}>
-          {element.listName}
+          {element.content}
           <DropArrow />
         </p>
         <ul className={`${styles.dropdown} ${isOpen ? styles.open : styles.closed}`}>
           {element.droplist.map((el, id) => {
-            if (!el.listName) return;
+            if (!el.content) return;
             return (
               <li
                 className={styles.dropdown__item}
@@ -45,7 +51,7 @@ const Dropdown = ({ element }) => {
                 }}
               >
                 <Link href={`/${el.href}`} className={styles.dropdown__link}>
-                  {el.listName}
+                  {el.content}
                 </Link>
               </li>
             );
@@ -55,11 +61,11 @@ const Dropdown = ({ element }) => {
     );
   }
 
-  if (!!element.listName) {
+  if (!!element.content) {
     return (
       <li className={styles.dropdown__item} onMouseEnter={Open} onMouseLeave={Close} onClick={CloseBurgerMenu}>
         <Link href={`/${element.href}`} className={styles.dropdown__link}>
-          {element.listName}
+          {element.content}
         </Link>
       </li>
     );

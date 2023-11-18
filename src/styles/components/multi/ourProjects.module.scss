@@ -16,14 +16,13 @@
 }
 
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 
 .item {
-  flex-grow: 1;
-  width: 300px;
+  width: 100%;
   // width: calc(33% - (20px * 2 / 3));
   height: 300px;
   object-fit: cover;

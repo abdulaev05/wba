@@ -1,19 +1,17 @@
-import { useState } from 'react';
-
+import { FC, useState } from 'react';
+import { TIcons } from '@/types/typeIcons';
 // styles
 import styles from '@/styles/components/ui/icons.module.scss';
 
-const Search = (props) => {
-  const size = props.size;
-  const hover = props.hover ? props.hover : props.color;
-  const [color, setColor] = useState(props.color);
+const Search: FC<TIcons> = ({ size, fill, hover }) => {
+  const [color, setColor] = useState(fill);
 
   return (
     <div className={styles.icon} style={{ width: size, height: size }}>
       <svg
         className={styles.transition}
         onMouseEnter={() => setColor(hover)}
-        onMouseLeave={() => setColor(props.color)}
+        onMouseLeave={() => setColor(fill)}
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 16 16"

@@ -1,14 +1,17 @@
+import { FC } from 'react';
 import Dropdown from './Dropdown';
 
+//types
+import { THeaderNav } from '@/types/typeNavs';
 //styles
 import styles from '@/styles/components/ui/navigation.module.scss';
 
-const Navigation = ({ listItems }) => {
+const Navigation: FC<{ navList: THeaderNav[] }> = ({ navList }) => {
   return (
     <nav className={styles.nav}>
       <ul className={styles.nav__list}>
-        {!!listItems &&
-          listItems.map((element, index) => {
+        {!!navList &&
+          navList.map((element, index) => {
             return <Dropdown element={element} key={index} />;
           })}
       </ul>

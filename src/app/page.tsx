@@ -5,29 +5,21 @@ import ChoosingHelp from '@/components/ChoosingHelp';
 import FAQ from '@/components/FAQ';
 import { Slider, Slide } from '@/components/Slider';
 
-// Import styles
+//?types
+import { TSlides, TSliderOptions } from '@/types/typeSliders';
+
+//?styles
 import styles from '@/styles/pages/home.module.scss';
 
-type TypeSlides = {
-  id: number;
-  content: string;
-};
-
-type TypeSliderOptions = {
-  transition: number;
-  loop: boolean;
-  autoplay: boolean;
-};
-
 const Home = () => {
-  const sliderOptions: TypeSliderOptions = {
+  const sliderOptions: TSliderOptions = {
     transition: 300,
     loop: true,
     autoplay: false,
   };
 
-  const slides: TypeSlides[] = [
-    { id: 1, content: '123' },
+  const slides: TSlides[] = [
+    { id: 1, content: '12sefsefsefsefsef' },
     { id: 2, content: 'dsv' },
     { id: 3, content: 'vsv' },
     { id: 4, content: '546bd' },

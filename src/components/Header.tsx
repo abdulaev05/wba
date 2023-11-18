@@ -3,6 +3,9 @@
 import { useLayoutEffect, useRef } from 'react';
 import useMediaQueries from '@/hooks/useMediaQueries';
 
+//types
+import { THeaderNav } from '@/types/typeNavs';
+
 import styles from '@/styles/components/multi/header.module.scss';
 
 //HeaderTop
@@ -27,36 +30,36 @@ const Header = () => {
   const { md } = useMediaQueries();
   const headerRef = useRef(null);
 
-  const list = [
+  const navList: THeaderNav[] = [
     {
       href: 'window',
-      listName: 'Окна',
+      content: 'Окна',
       droplist: [
-        { href: 'Простое окно', listName: 'Простое окно' },
-        { href: 'Окно с защитой от шума', listName: 'Окно с защитой от шума' },
-        { href: 'Энергоэффективное окно', listName: 'Энергоэффективное окно' },
-        { href: 'Окно с солнцезащитой', listName: 'Окно с солнцезащитой' },
+        { href: 'Простое окно', content: 'Простое окно' },
+        { href: 'Окно с защитой от шума', content: 'Окно с защитой от шума' },
+        { href: 'Энергоэффективное окно', content: 'Энергоэффективное окно' },
+        { href: 'Окно с солнцезащитой', content: 'Окно с солнцезащитой' },
       ],
     },
     {
       href: 'facades',
-      listName: 'Фасады',
+      content: 'Фасады',
       droplist: [
-        { href: '12334234', listName: '12334234' },
-        { href: 'sdf12314134sfsd', listName: 'sdf12314134sfsd' },
+        { href: '12334234', content: '12334234' },
+        { href: 'sdf12314134sfsd', content: 'sdf12314134sfsd' },
       ],
     },
     {
       href: 'door',
-      listName: 'Двери',
+      content: 'Двери',
       droplist: [
-        { href: 'Входная дверь', listName: 'Входная дверь' },
-        { href: 'Межкомнатная (офисная) дверь', listName: 'Межкомнатная (офисная) дверь' },
-        { href: 'Балконные двери', listName: 'Балконные двери' },
+        { href: 'Входная дверь', content: 'Входная дверь' },
+        { href: 'Межкомнатная (офисная) дверь', content: 'Межкомнатная (офисная) дверь' },
+        { href: 'Балконные двери', content: 'Балконные двери' },
       ],
     },
-    { href: 'client-help', listName: 'Помощь покупателю' },
-    { href: 'about', listName: 'О компании' },
+    { href: 'client-help', content: 'Помощь покупателю' },
+    { href: 'about', content: 'О компании' },
   ];
 
   useLayoutEffect(() => {
@@ -93,7 +96,7 @@ const Header = () => {
         <div className={styles.bottom}>
           <div className="container">
             <div className="row" style={{ justifyContent: 'space-between' }}>
-              <Navigation listItems={list} />
+              <Navigation navList={navList} />
               <div className={styles.bottom__shopBarIcons}>
                 <Search hover="rgb(51, 108, 233)" />
                 <Basket hover="rgb(51, 108, 233)" />
@@ -112,7 +115,7 @@ const Header = () => {
           <div className={styles.mobile_header__container}>
             <Logo width="100" height="31.25" />
             <Socials />
-            <BurgerMenu />
+            <BurgerMenu navList={navList} />
           </div>
         </div>
       </div>
