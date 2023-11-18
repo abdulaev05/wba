@@ -126,7 +126,6 @@ const Slider: FC<TSlider> = ({ children, options = { transition: 500, loop: fals
     const slides: any = slidesElRef.current.children;
     const count = slides.length - 1;
     const slideLength = slides.length;
-    console.log(slides);
 
     if (LOOP && slides) slides[count].style.transform = `translateX(${-slideLength * 100}%)`;
   }, []);
