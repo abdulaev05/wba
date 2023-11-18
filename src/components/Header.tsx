@@ -76,7 +76,7 @@ const Header = () => {
         <div className={styles.top}>
           <div className="container">
             <div className="row" style={{ justifyContent: 'space-between' }}>
-              <PhoneNumber number="+7-988-655-91-00" />
+              <PhoneNumber content="+7-988-655-91-00" />
               <Socials />
             </div>
           </div>
