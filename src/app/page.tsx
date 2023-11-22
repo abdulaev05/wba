@@ -1,7 +1,6 @@
 'use client';
-import { SimpleSlider } from '@/components/sliders/SimpleSlider';
 
-import { Slider, Slide } from '@/components/sliders/Slider';
+import { SimpleSlider, Slide } from '@/components/sliders/SimpleSlider';
 import OurProjects from '@/components/OurProjects';
 import ChoosingHelp from '@/components/ChoosingHelp';
 import FAQ from '@/components/FAQ';
@@ -13,7 +12,6 @@ import styles from '@/styles/pages/home.module.scss';
 import { TSlides, TSliderOptions } from '@/types/typeSliders';
 
 //?imgs
-import imgs from '@/imgs/imgs';
 
 const Home = () => {
   const sliderOptions: TSliderOptions = {
