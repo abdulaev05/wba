@@ -7,7 +7,8 @@ import { THeaderNav } from '@/types/typeNavs';
 import styles from '@/styles/components/ui/burger_menu.module.scss';
 
 import Burger from '@/components/Icons/Burger';
-import Navigation from './Navigation';
+import BurgerMenuNav from './navigations/BurgerMenuNav';
+
 import Order from './buttons/Order';
 import Callback from './buttons/Callback';
 import Calculator from './buttons/Calculator';
@@ -16,7 +17,7 @@ import Calculator from './buttons/Calculator';
 
 const BurgerMenu: FC<{ navList: THeaderNav[] }> = ({ navList }) => {
   const dispatch = useAppDispatch();
-  const burgerIsActive = useAppSelector((state) => state.bm.isActive);
+  const burgerIsActive = useAppSelector((state) => state.burgerMenu.isActive);
 
   const handleClickBackground = () => {
     dispatch(toggleBurgerMenu(false));
@@ -32,7 +33,7 @@ const BurgerMenu: FC<{ navList: THeaderNav[] }> = ({ navList }) => {
         <div className={`${styles.bar1}`} onClick={handleClickBackground}></div>
         <div className={`${styles.bar2}`}>
           <div className={styles.bar2__container}>
-            <Navigation navList={navList} />
+            <BurgerMenuNav navList={navList} />
             <div className="buttons" style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
               <Order content="Заказать звонок" />
               <Callback content="Записать на замер" />

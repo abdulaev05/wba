@@ -1,4 +1,4 @@
-@import '../../links/fonts.scss';
+@import '../../links/adaptive_mixin.scss';
 
 .slider {
   width: 100%;
@@ -64,7 +64,7 @@
 }
 
 .slider__button {
-  background: url(../../../imgs/prev.svg) center/cover no-repeat;
+  background: url(../../../imgs/icons/prev.svg) center/cover no-repeat;
   @include adaptive_property(30px, 50px, 320px, 1280px, width);
   @include adaptive_property(30px, 50px, 320px, 1280px, height);
 }
@@ -95,6 +95,6 @@
   }
 
   .slider__button {
-    background-image: url(../../../imgs/arrow_left.svg);
+    background-image: url(../../../imgs/icons/arrow_left.svg);
   }
 }

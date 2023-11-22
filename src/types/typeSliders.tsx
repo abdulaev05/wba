@@ -15,5 +15,5 @@ export type TSlider = {
 
 export type TSlides = {
   id: number;
-  content: string;
+  content?: string;
 };

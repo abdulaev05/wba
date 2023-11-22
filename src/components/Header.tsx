@@ -16,7 +16,7 @@ import Socials from './Socials';
 import Logo from './Logo';
 
 //HeaderBottom
-import Navigation from './Navigation';
+import Navigation from './navigations/HeaderNav';
 import Basket from './Icons/Basket';
 import Search from './Icons/Search';
 import Order from './buttons/Order';
@@ -113,8 +113,7 @@ const Header = () => {
       <div className="container">
         <div className="row">
           <div className={styles.mobile_header__container}>
-            <Logo width="100" height="31.25" />
-            <Socials />
+            <Logo width="80" height="25" />
             <BurgerMenu navList={navList} />
           </div>
         </div>

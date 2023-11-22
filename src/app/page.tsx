@@ -1,19 +1,23 @@
 'use client';
+import { SimpleSlider } from '@/components/sliders/SimpleSlider';
 
+import { Slider, Slide } from '@/components/sliders/Slider';
 import OurProjects from '@/components/OurProjects';
 import ChoosingHelp from '@/components/ChoosingHelp';
 import FAQ from '@/components/FAQ';
-import { Slider, Slide } from '@/components/Slider';
-
-//?types
-import { TSlides, TSliderOptions } from '@/types/typeSliders';
 
 //?styles
 import styles from '@/styles/pages/home.module.scss';
 
+//?types
+import { TSlides, TSliderOptions } from '@/types/typeSliders';
+
+//?imgs
+import imgs from '@/imgs/imgs';
+
 const Home = () => {
   const sliderOptions: TSliderOptions = {
-    transition: 300,
+    transition: 500,
     loop: true,
     autoplay: false,
   };
@@ -32,11 +36,11 @@ const Home = () => {
     <main className={styles.home}>
       <div style={{ width: '100%', height: '500px' }}>
         <div className="container">
-          <Slider options={sliderOptions}>
-            {slides.map((el) => {
-              return <Slide key={el.id}>{el.content}</Slide>;
+          <SimpleSlider options={sliderOptions}>
+            {slides.map((elem, id) => {
+              return <Slide key={id}>{elem.content}</Slide>;
             })}
-          </Slider>
+          </SimpleSlider>
         </div>
       </div>
       <OurProjects />

@@ -7,7 +7,7 @@ const Burger = () => {
     dispatch(toggleBurgerMenu(!burgerIsActive));
   };
 
-  const burgerIsActive = useAppSelector((state) => state.bm.isActive);
+  const burgerIsActive = useAppSelector((state) => state.burgerMenu.isActive);
   const dispatch = useAppDispatch();
 
   return (

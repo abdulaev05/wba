@@ -5,7 +5,7 @@ import '@/styles/globals.scss';
 
 import Wrapper from './wrapper';
 
-import favicon from '@/imgs/favicon.ico';
+import favicon from '@/imgs/favicons/favicon.ico';
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={roboto.className}>
         <Wrapper>{children}</Wrapper>
       </body>

@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import styles from '@/styles/components/ui/logo.module.scss';
 
-import imgs from '@/imgs/imgs';
+import logo from '@/imgs/logo.svg';
 
 type TLogo = {
   width: string;
@@ -14,7 +14,7 @@ type TLogo = {
 const Logo: FC<TLogo> = ({ width, height }) => {
   return (
     <Link href="/" className={styles.logo} style={{ width: `${width}px`, height: `${height}px` }}>
-      <Image src={imgs.logo} alt="logo" />
+      <Image src={logo} alt="logo" />
     </Link>
   );
 };

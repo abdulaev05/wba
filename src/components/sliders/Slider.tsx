@@ -13,7 +13,7 @@ const Slide: FC<TSlide> = ({ children }) => {
 
 const Slider: FC<TSlider> = ({ children, options = { transition: 500, loop: false, autoplay: false } }) => {
   const { transition: TRANSITION, loop: LOOP, autoplay: AUTOPLAY } = options;
-  const INTERVAL_AUTOPLAY = TRANSITION + 1500;
+  const INTERVAL_AUTOPLAY = TRANSITION + 2500;
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [index, setIndex] = useState(0);

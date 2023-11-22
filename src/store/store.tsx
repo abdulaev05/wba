@@ -1,9 +1,14 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import burgerMenuReducer from './reducers/burgerMenuSlice';
+import burgerMenuSlice from './reducers/burgerMenuSlice';
+import simpleSliderSlice from './reducers/sliders/simpleSliderSlice';
+
+const sliderReducer = combineReducers({
+  simpleSlider: simpleSliderSlice,
+});
 
 const rootReducer = combineReducers({
-  // burgerMenu: burgerMenuReducer,
-  bm: burgerMenuReducer,
+  burgerMenu: burgerMenuSlice,
+  slider: sliderReducer,
 });
 
 const store = configureStore({

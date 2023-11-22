@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// const TOGGLE_BURGER_MEN = createAction('TOGGLE_BURGER_MEN');
-
 type initType = {
   isActive: boolean;
 };

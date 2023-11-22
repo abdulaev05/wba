@@ -1,4 +1,5 @@
-type droplistType = { href: string; content: string };
+export type droplistType = { href: string; content: string };
+
 export type THeaderNav = {
   href: string;
   content: string;

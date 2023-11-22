@@ -1,11 +1,11 @@
 @import '../../links/colors.scss';
-@import '../../links/fonts.scss';
+@import '../../links/adaptive_mixin.scss';
 
 .choosing_help {
   width: 100%;
   margin-bottom: 70px;
 
-  background: url(../../../imgs/man.jpg) center/cover no-repeat;
+  background: url(../../../imgs/backgrounds/man.jpg) center/cover no-repeat;
 }
 
 .container {
