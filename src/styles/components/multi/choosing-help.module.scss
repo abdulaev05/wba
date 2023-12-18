@@ -5,7 +5,7 @@
   width: 100%;
   margin-bottom: 70px;
 
-  background: url(../../../imgs/backgrounds/man.jpg) center/cover no-repeat;
+  color: #fff;
 }
 
 .container {
@@ -14,7 +14,11 @@
   row-gap: 25px;
 
   width: 100%;
-  padding: 80px 0;
+  padding: 80px 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../../../imgs/backgrounds/background_for_form-mobile.jpeg) center/cover no-repeat;
+
+  border-radius: 5px;
 }
 
 .text {
@@ -23,10 +27,16 @@
 
   height: 100%;
 
+  &__title {
+    @include adaptive_property(24px, 40px, 320px, 1280px, margin-bottom);
+
+    @include adaptive_property(28px, 40px, 320px, 1280px, font-size);
+    font-weight: 700;
+  }
+
   &__subtitle {
     max-width: 340px;
     @include adaptive_property(14px, 18px, 320px, 1280px, font-size);
-    color: $brilliant-blue;
   }
 }
 
@@ -60,6 +70,9 @@
     align-items: center;
 
     width: 100%;
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url(../../../imgs/backgrounds/background_for_form-mobile.jpeg);
   }
 
   .text {

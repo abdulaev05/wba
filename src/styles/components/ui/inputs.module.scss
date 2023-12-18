@@ -34,8 +34,8 @@
   height: 16px;
   border: none;
 }
-
 ////////////////
+
 .check_anim {
   --background-color: #fff;
   --checkbox-size: 15px;
@@ -51,7 +51,7 @@
     height: var(--checkbox-size);
     width: var(--checkbox-size);
     background-color: transparent;
-    border: calc(var(--checkbox-size) * 0.1) solid #000;
+    border: calc(var(--checkbox-size) * 0.1) solid #fff;
     border-radius: 25%;
     position: relative;
     display: inline-block;
@@ -66,7 +66,7 @@
       position: absolute;
       height: 0;
       width: calc(var(--checkbox-size) * 0.2);
-      background-color: $blueSky;
+      background-color: $blueSky; // Assuming $blueSky is defined somewhere
       display: inline-block;
       transform-origin: left top;
       border-radius: 5px;
@@ -76,7 +76,6 @@
     &::before {
       top: calc(var(--checkbox-size) * 0.72);
       left: calc(var(--checkbox-size) * 0.41);
-      box-shadow: 0 0 0 calc(var(--checkbox-size) * 0.05) var(--background-color);
       transform: rotate(-135deg);
     }
 
@@ -90,7 +89,7 @@
 
 .check_anim input[type='checkbox']:checked + .check_box,
 .check_anim .check_box.checked {
-  border-color: $blueSky;
+  border-color: $blueSky; // Assuming $blueSky is defined somewhere
 }
 
 .check_anim input[type='checkbox']:checked + .check_box::after,
