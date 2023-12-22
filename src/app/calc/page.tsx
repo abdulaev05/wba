@@ -2,17 +2,20 @@
 import { useRef } from 'react';
 
 import ChoosingHelp from '@/components/ChoosingHelp';
-import SimpleSelect from '@/components/select/SimpleSelect';
+import SimpleSelector from '@/components/SimpleSelector';
 
+//styles
 import styles from '@/styles/pages/calculator.module.scss';
+import inputs from '@/styles/components/ui/inputs.module.scss';
+
+//imgs
 
 import { windows } from '@/imgs/imgs';
-import SimpleSelector from '@/components/SimpleSelector';
 
 const pageCalc = () => {
   const typesRef = useRef<HTMLDivElement>(null);
 
-  const handleClickType = (e) => {
+  const handleClickType = (e: any) => {
     const typeItems = typesRef.current?.children;
     if (typeItems) {
       Array.from(typeItems).forEach((child) => {
@@ -23,84 +26,50 @@ const pageCalc = () => {
     e.currentTarget.classList.add(styles.options__types__item__active);
   };
 
-  const options3 = [
+  const stvorka_opt = [
     {
-      value: 'option1',
-      label: 'Option 1',
+      value: 'поворотное',
+      label: 'Поворотное',
     },
     {
-      value: 'option2',
-      label: 'Option 2',
+      value: 'поворотно-откидное',
+      label: 'Поворотно-откидное',
     },
     {
-      value: 'option3',
-      label: 'Option 3',
+      value: 'глухое',
+      label: 'Глухое',
     },
     {
-      value: 'option4',
-      label: 'Option 1',
-    },
-    {
-      value: 'option5',
-      label: 'Option 2',
-    },
-    {
-      value: 'option6',
-      label: 'Option 3',
-    },
-    {
-      value: 'option7',
-      label: 'Option 1',
-    },
-    {
-      value: 'option8',
-      label: 'Option 2',
-    },
-    {
-      value: 'option9',
-      label: 'Option 3',
-    },
-  ];
-  const options4 = [
-    {
-      value: 'option1',
-      label: 'Option 1',
-    },
-    {
-      value: 'option2',
-      label: 'Option 2',
-    },
-    {
-      value: 'option3',
-      label: 'Option 3',
-    },
-    {
-      value: 'option4',
-      label: 'Option 1',
-    },
-    {
-      value: 'option5',
-      label: 'Option 2',
-    },
-    {
-      value: 'option6',
-      label: 'Option 3',
-    },
-    {
-      value: 'option7',
-      label: 'Option 1',
-    },
-    {
-      value: 'option8',
-      label: 'Option 2',
-    },
-    {
-      value: 'option9',
-      label: 'Option 3',
+      value: 'откидное',
+      label: 'Откидное',
     },
   ];
 
-  const stvorka_item = ['1', '2', '3'];
+  const double_glazing_opt = [
+    {
+      value: 'однокамерный',
+      label: 'Однокамерный',
+    },
+    {
+      value: 'двухкамерный',
+      label: 'Двухкамерный',
+    },
+    {
+      value: 'шумозащитный',
+      label: 'Шумозащитный',
+    },
+  ];
+
+  const color_opt = [
+    {
+      value: 'белый',
+      label: 'Белый',
+    },
+    {
+      value: 'цветной',
+      label: 'Цветной',
+    },
+  ];
 
   return (
     <main>
@@ -180,27 +149,55 @@ const pageCalc = () => {
                 <div className={styles.options__container}>
                   <div className={styles.options__title}>Створки</div>
                   <div className={styles.options__stvorka}>
-                    {/* <SimpleSelect options={options3} placeholder="hello" id="stvorka1" /> */}
-
                     <div className={styles.options__stvorka__item}>
-                      <SimpleSelector options={stvorka_item} />
+                      <SimpleSelector options={stvorka_opt} />
                     </div>
                     <div className={styles.options__stvorka__item}>
-                      <SimpleSelector options={stvorka_item} />
+                      <SimpleSelector options={stvorka_opt} />
                     </div>
                     <div className={styles.options__stvorka__item}>
-                      <SimpleSelector options={stvorka_item} />
+                      <SimpleSelector options={stvorka_opt} />
                     </div>
                     <div className={styles.options__stvorka__item}>
-                      <SimpleSelector options={stvorka_item} />
+                      <SimpleSelector options={stvorka_opt} />
                     </div>
                   </div>
                 </div>
-                <div className={styles.options__container} onClick={handleClickType}>
+                <div className={styles.options__container}>
                   <div className={styles.options__title}>Параметры окна</div>
+                  <div className={styles.options__window_options}>
+                    <div className={styles.options__window_options__size}>
+                      <div className={styles.options__window_options__size__item}>
+                        <p className={styles.options__title2}>Ширина, мм</p>
+                        <input className={inputs.square_input} type="number" name="width" />
+                      </div>
+                      <div className={styles.options__window_options__size__item}>
+                        <p className={styles.options__title2}>Высота, мм</p>
+                        <input className={inputs.square_input} type="number" name="width" />
+                      </div>
+                    </div>
+                    <div className={styles.options__window_options__another}>
+                      <div className="">
+                        <p className={styles.options__title2}>Стеклопакет</p>
+                        <SimpleSelector options={double_glazing_opt} />
+                      </div>
+                      <div className="">
+                        <p className={styles.options__title2}>Цвет</p>
+                        <SimpleSelector options={color_opt} />
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div className={styles.options__container}>
                   <div className={styles.options__title}>Дополнительные опции</div>
+                  <div className={styles.options__additional}>
+                    <div className="">
+                      <div className={inputs.check_anim}>
+                        <input id="cbtest-19" type="checkbox" />
+                        <label className={inputs.check_box} htmlFor="cbtest-19"></label>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

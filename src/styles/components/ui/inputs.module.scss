@@ -13,28 +13,22 @@
 
 .square_input {
   width: 100%;
-  height: 50px;
+  height: 40px;
   padding-left: 15px;
 
   appearance: none;
 
   border: 1px solid $blueSky;
+  outline: none;
 
   text-transform: capitalize;
-  transition: all 0.3s ease-out 0s;
+  transition: box-shadow 0.3s ease-out 0s;
 
-  &:focus {
+  &:focus,
+  &:focus-visible {
     box-shadow: $blueSky 0px 0px 0px 1px inset;
-    outline: none;
   }
 }
-
-.checkbox {
-  width: 16px;
-  height: 16px;
-  border: none;
-}
-////////////////
 
 .check_anim {
   --background-color: #fff;
@@ -95,16 +89,16 @@
 .check_anim input[type='checkbox']:checked + .check_box::after,
 .check_anim .check_box.checked::after {
   height: calc(var(--checkbox-size) / 2);
-  animation: dothabottomcheck-19 0.2s ease 0s forwards;
+  animation: left-line 0.2s ease 0s forwards;
 }
 
 .check_anim input[type='checkbox']:checked + .check_box::before,
 .check_anim .check_box.checked::before {
   height: calc(var(--checkbox-size) * 1.2);
-  animation: dothatopcheck-19 0.4s ease 0s forwards;
+  animation: right-line 0.4s ease 0s forwards;
 }
 
-@keyframes dothabottomcheck-19 {
+@keyframes left-line {
   0% {
     height: 0;
   }
@@ -114,7 +108,7 @@
   }
 }
 
-@keyframes dothatopcheck-19 {
+@keyframes right-line {
   0% {
     height: 0;
   }

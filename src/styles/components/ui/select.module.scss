@@ -8,19 +8,25 @@
     height: 40px;
 
     margin-bottom: 2px;
-    padding: 10px;
+    padding-left: 15px;
 
-    border: 1px solid #ccc;
+    border: 1px solid $blueSky;
     border-radius: 4px;
     outline: none;
-    transition: border-color 0.3s ease-in-out;
+
+    appearance: none;
+
+    text-transform: capitalize;
+    transition: box-shadow 0.3s ease-out 0s;
+
+    &:focus,
+    &:focus-visible {
+      box-shadow: $blueSky 0px 0px 0px 1px inset;
+    }
 
     &::placeholder {
       font-size: 14px;
       color: inherit;
-    }
-    &:focus {
-      border-color: $blueSky;
     }
   }
 

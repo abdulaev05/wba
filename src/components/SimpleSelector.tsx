@@ -2,20 +2,25 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from '@/styles/components/ui/select.module.scss';
 import { useDebounce } from '@/hooks/useDebounce';
 
+type Option = {
+  value: string;
+  label: string;
+};
+
 type SimpleSelectorProps = {
-  options: string[];
+  options: Option[];
 };
 
 const SimpleSelector: React.FC<SimpleSelectorProps> = ({ options }) => {
   const [inputValue, setInputValue] = useState('');
-  const [placeholderValue, setPlaceholderValue] = useState<string>(options?.[0] && options[0]);
+  const [placeholderValue, setPlaceholderValue] = useState<string>(options?.[0]?.label || '');
   const [isDropdownVisible, setDropdownVisible] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [filteredOptions, setFilteredOptions] = useState<string[]>(options);
+  const [selectedOption, setSelectedOption] = useState<Option | null>(null);
+  const [filteredOptions, setFilteredOptions] = useState<Option[]>(options);
   const [shouldRenderOptions, setShouldRenderOptions] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const debouncedInputValue = useDebounce(inputValue ?? '', 3000);
+  const debouncedInputValue = useDebounce(inputValue ?? '', 300);
 
   useEffect(() => {
     document.addEventListener('click', handleDocumentClick);
@@ -42,9 +47,8 @@ const SimpleSelector: React.FC<SimpleSelectorProps> = ({ options }) => {
 
   const filterOptions = (searchText: string) => {
     if (!options) return [];
-    const newFilteredOptions = options
-      .filter((option) => option.toLowerCase().includes(searchText.toLowerCase()))
-      .sort((a, b) => a.localeCompare(b));
+    const newFilteredOptions = options.filter((option) => option.label.toLowerCase().includes(searchText.trim().toLowerCase()));
+    // .sort((a, b) => a.label.localeCompare(b.label));
 
     return newFilteredOptions;
   };
@@ -53,23 +57,23 @@ const SimpleSelector: React.FC<SimpleSelectorProps> = ({ options }) => {
     setDropdownVisible(!isDropdownVisible);
   };
 
-  const handleOptionClick = (index: number) => {
-    const option = filteredOptions[index];
+  const handleOptionClick = (value: string) => {
+    const option = filteredOptions.find((child) => child.value === value);
+    if (option) {
+      setPlaceholderValue(option.label);
+      setSelectedOption(option);
+    }
     setInputValue('');
-    setPlaceholderValue(option);
-    setSelectedOption(option);
     setDropdownVisible(false);
     setShouldRenderOptions(false);
 
     const dropdownContent = dropdownRef.current?.querySelector(`.${styles.dropdownContent}`);
     if (dropdownContent) {
       Array.from(dropdownContent.children).forEach((child) => {
+        if (child.getAttribute('data-value') === value) return child.classList.add(styles.selected);
         child.classList.remove(styles.selected);
       });
     }
-
-    const currentSelectedElement = dropdownContent?.children[index];
-    currentSelectedElement?.classList.add(styles.selected);
   };
 
   return (
@@ -86,8 +90,8 @@ const SimpleSelector: React.FC<SimpleSelectorProps> = ({ options }) => {
       <div className={styles.dropdownContent}>
         {options &&
           filteredOptions.map((option, index) => (
-            <a key={index} onClick={() => handleOptionClick(index)}>
-              {option}
+            <a key={index} data-value={option.value} onClick={() => handleOptionClick(option.value)}>
+              {option.label}
             </a>
           ))}
       </div>

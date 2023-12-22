@@ -60,6 +60,8 @@ nav {
   width: fit-content;
   position: relative;
   white-space: nowrap;
+  user-select: none;
+
   &__link {
     display: flex;
     align-items: center;
