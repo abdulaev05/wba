@@ -47,7 +47,7 @@ const SimpleSelector: React.FC<SimpleSelectorProps> = ({ options }) => {
 
   const filterOptions = (searchText: string) => {
     if (!options) return [];
-    const newFilteredOptions = options.filter((option) => option.label.toLowerCase().includes(searchText.trim().toLowerCase()));
+    const newFilteredOptions = options.filter((option) => option.label.toLowerCase().includes(searchText.toLowerCase().trim()));
     // .sort((a, b) => a.label.localeCompare(b.label));
 
     return newFilteredOptions;
